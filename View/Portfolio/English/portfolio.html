@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+﻿<!DOCTYPE html>
+<html lang="en" data-lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfólio | Davi</title>
-  <link rel="stylesheet" href="portfolio.css" />
+  <title>Portfolio | Davi</title>
+  <link rel="stylesheet" href="../../CSS/portfolioStyles.css" />
+  <script defer src="../../JS/portfolio.js"></script>
 </head>
-
 <body>
   <div class="bg" aria-hidden="true">
     <div class="glow glow--a"></div>
@@ -15,400 +15,190 @@
     <div class="noise"></div>
   </div>
 
-  <header class="header">
+  <header class="header" data-header>
     <div class="container header__content">
-      <a class="brand" href="portfolio.html" aria-label="Página inicial do portfólio">
+      <a class="brand" href="../../../index.html" aria-label="Davi Portfolio">
         <span class="brand__mark">DP</span>
         <span class="brand__text">Davi</span>
       </a>
 
-      <nav class="nav" aria-label="Navegação principal">
-        <a href="#sobre" class="nav__link">Sobre</a>
-        <a href="#skills" class="nav__link">Skills</a>
-        <a href="#projetos" class="nav__link">Projetos</a>
-        <a href="#experiencia" class="nav__link">Experiência</a>
-        <a href="#conteudos" class="nav__link">Conteúdos</a>
-        <a href="#contato" class="nav__link">Contato</a>
+      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" data-menu-toggle>
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav" aria-label="Main navigation" data-nav>
+        <a href="#sobre" class="nav__link" data-i18n="nav.about"></a>
+        <a href="#skills" class="nav__link" data-i18n="nav.skills"></a>
+        <a href="#projetos" class="nav__link" data-i18n="nav.projects"></a>
+        <a href="#experiencia" class="nav__link" data-i18n="nav.experience"></a>
+        <a href="#conteudos" class="nav__link" data-i18n="nav.content"></a>
+        <a href="#contato" class="nav__link" data-i18n="nav.contact"></a>
       </nav>
 
-      <div class="header__actions">
-        <a class="btn btn--ghost" href="index.html">← Voltar</a>
-        <a class="btn btn--primary" href="#contato">Falar comigo</a>
+      <div class="language-switch" aria-label="Idiomas">
+        <a href="../portugues/portfolio.html" data-lang-link="pt">PT</a>
+        <a href="../English/portfolio.html" data-lang-link="en">EN</a>
+        <a href="../japanese/portfolio.html" data-lang-link="ja">JA</a>
       </div>
+
+      <button class="theme-toggle" type="button" aria-label="Toggle light and dark theme" data-theme-toggle>
+        <span data-theme-icon>☾</span>
+      </button>
     </div>
   </header>
 
   <main class="main">
-    <!-- HERO -->
-    <section class="section hero">
+    <section class="section hero" id="inicio">
       <div class="container hero__grid">
-        <div class="hero__left">
-          <div class="kicker">QA Automation • Docente SENAC • Dev</div>
-          <h1 class="h1">
-            Eu entrego qualidade com automação e engenharia prática.
-          </h1>
-          <p class="lead">
-            Testes automatizados, documentação, padrões e consistência.
-            Meu foco é construir soluções confiáveis — tanto em produto quanto em processo.
-          </p>
+        <div class="hero__left reveal">
+          <div class="kicker" data-i18n="hero.kicker"></div>
+          <h1 class="h1" data-i18n="hero.title"></h1>
+          <p class="lead" data-i18n="hero.lead"></p>
 
-          <div class="chips" aria-label="Tecnologias">
-            <span class="chip">Selenium</span>
-            <span class="chip">Cucumber</span>
-            <span class="chip">JUnit</span>
-            <span class="chip">Java</span>
-            <span class="chip">C#</span>
-            <span class="chip">API Testing</span>
-            <span class="chip">CI/CD</span>
-          </div>
+          <div class="chips" aria-label="Tecnologias" data-skills-inline></div>
 
           <div class="hero__actions">
-            <a class="btn btn--primary" href="#projetos">Ver Projetos <span class="btn__icon">→</span></a>
-            <a class="btn btn--ghost" href="#" target="_blank" rel="noreferrer">GitHub</a>
-            <a class="btn btn--ghost" href="#" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="btn btn--primary" href="#projetos">
+              <span data-i18n="hero.projectsButton"></span>
+              <span class="btn__icon" aria-hidden="true">-&gt;</span>
+            </a>
+            <a class="btn btn--ghost" href="https://github.com/DaviTaiyo" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="btn btn--ghost" href="https://www.linkedin.com/in/davipaulino/" target="_blank" rel="noreferrer">LinkedIn</a>
           </div>
         </div>
 
-        <aside class="hero__right">
-          <div class="card card--profile">
+        <aside class="hero__right reveal">
+          <div class="profile-card">
             <div class="avatar" aria-hidden="true">DP</div>
-
             <div class="profile__info">
               <h2 class="profile__name">Davi Emanuel Paulino</h2>
-              <p class="profile__role">QA Automation • Docente • Dev</p>
+              <p class="profile__role" data-i18n="profile.role"></p>
             </div>
 
-            <div class="profile__meta">
-              <div class="meta">
-                <span class="meta__label">Base</span>
-                <span class="meta__value">São Paulo, BR</span>
-              </div>
-              <div class="meta">
-                <span class="meta__label">Foco</span>
-                <span class="meta__value">Qualidade + Ensino</span>
-              </div>
-              <div class="meta">
-                <span class="meta__label">Stack</span>
-                <span class="meta__value">Java • C# • QA</span>
-              </div>
-            </div>
+            <div class="profile__meta" data-profile-meta></div>
 
             <div class="divider"></div>
 
             <div class="profile__cta">
-              <a class="mini" href="#contato">Disponível para projetos</a>
+              <a class="mini" href="#contato" data-i18n="profile.available"></a>
               <span class="dot">•</span>
-              <a class="mini" href="#projetos">Ver cases</a>
+              <a class="mini" href="#projetos" data-i18n="profile.cases"></a>
             </div>
           </div>
         </aside>
       </div>
     </section>
 
-    <!-- SOBRE -->
     <section id="sobre" class="section">
       <div class="container">
-        <div class="section__head">
-          <h2 class="h2">Sobre</h2>
-          <p class="section__sub">
-            Um resumo direto do que eu faço e como eu penso.
-          </p>
+        <div class="section__head reveal">
+          <h2 class="h2" data-i18n="about.title"></h2>
+          <p class="section__sub" data-i18n="about.subtitle"></p>
         </div>
-
-        <div class="grid2">
-          <article class="card">
-            <h3 class="h3">Quem eu sou</h3>
-            <p class="p">
-              Sou QA Automation e docente. Gosto de processos claros, automação bem estruturada
-              e soluções que aguentam o mundo real — prazos, mudanças e bugs teimosos.
-            </p>
-            <p class="p">
-              Eu valorizo: legibilidade, manutenção, rastreabilidade e testes que realmente protegem o produto.
-            </p>
-          </article>
-
-          <article class="card">
-            <h3 class="h3">Atualmente</h3>
-            <ul class="list">
-              <li><span class="bullet"></span> Automatizando testes (POM/BDD) e melhorando confiabilidade do fluxo.</li>
-              <li><span class="bullet"></span> Criando materiais e projetos práticos para alunos no SENAC.</li>
-              <li><span class="bullet"></span> Evoluindo portfólio com projetos bem documentados e demonstráveis.</li>
-            </ul>
-            <div class="divider"></div>
-            <p class="p small">
-              <strong>Buscando:</strong> crescer como QA/SDET, fortalecer CI/CD, e consolidar projetos públicos.
-            </p>
-          </article>
-        </div>
+        <div class="grid2" data-about-cards></div>
       </div>
     </section>
 
-    <!-- SKILLS -->
     <section id="skills" class="section">
       <div class="container">
-        <div class="section__head">
-          <h2 class="h2">Skills</h2>
-          <p class="section__sub">Organizado por áreas, do jeitinho que recrutador ama.</p>
+        <div class="section__head reveal">
+          <h2 class="h2" data-i18n="skills.title"></h2>
+          <p class="section__sub" data-i18n="skills.subtitle"></p>
         </div>
-
-        <div class="grid3">
-          <article class="card">
-            <h3 class="h3">QA Automation</h3>
-            <p class="p small">Estrutura, clareza e estabilidade.</p>
-            <div class="tags">
-              <span class="tag">Selenium</span>
-              <span class="tag">Cucumber</span>
-              <span class="tag">JUnit</span>
-              <span class="tag">POM</span>
-              <span class="tag">BDD</span>
-              <span class="tag">DataTable</span>
-            </div>
-          </article>
-
-          <article class="card">
-            <h3 class="h3">Back-end & Dados</h3>
-            <p class="p small">Pensando em logs, rastreio e qualidade no server.</p>
-            <div class="tags">
-              <span class="tag">C#</span>
-              <span class="tag">APIs</span>
-              <span class="tag">SQL</span>
-              <span class="tag">Logs</span>
-              <span class="tag">CRUD</span>
-            </div>
-          </article>
-
-          <article class="card">
-            <h3 class="h3">Ferramentas</h3>
-            <p class="p small">Pipeline e rotina profissional.</p>
-            <div class="tags">
-              <span class="tag">Git</span>
-              <span class="tag">CI/CD</span>
-              <span class="tag">Jira</span>
-              <span class="tag">Postman</span>
-              <span class="tag">Linux</span>
-            </div>
-          </article>
-        </div>
+        <div class="grid3" data-skill-groups></div>
       </div>
     </section>
 
-    <!-- PROJETOS -->
     <section id="projetos" class="section">
       <div class="container">
-        <div class="section__head">
-          <h2 class="h2">Projetos</h2>
-          <p class="section__sub">Alguns projetos com cara de produto, não só “código jogado”.</p>
+        <div class="section__head reveal">
+          <h2 class="h2" data-i18n="projects.title"></h2>
+          <p class="section__sub" data-i18n="projects.subtitle"></p>
         </div>
-
-        <div class="projects">
-          <article class="card project">
-            <div class="project__top">
-              <h3 class="h3">Framework de Automação (POM/BDD)</h3>
-              <span class="pill">QA</span>
-            </div>
-            <p class="p">
-              Estrutura escalável com Page Objects, separação de seletores e DataTable.
-              Foco em reuso, logs e manutenção.
-            </p>
-            <div class="tags">
-              <span class="tag">Java</span>
-              <span class="tag">Selenium</span>
-              <span class="tag">Cucumber</span>
-              <span class="tag">JUnit</span>
-            </div>
-            <div class="project__actions">
-              <a class="btn btn--ghost btn--sm" href="#">Detalhes</a>
-              <a class="btn btn--ghost btn--sm" href="#" target="_blank" rel="noreferrer">Repo</a>
-            </div>
-          </article>
-
-          <article class="card project">
-            <div class="project__top">
-              <h3 class="h3">Logs de Requisições CRUD (Back-end)</h3>
-              <span class="pill">C#</span>
-            </div>
-            <p class="p">
-              Implementação de relatório de logs registrando requisições bem-sucedidas,
-              com padrão limpo e rastreabilidade.
-            </p>
-            <div class="tags">
-              <span class="tag">C#</span>
-              <span class="tag">API</span>
-              <span class="tag">SQL</span>
-              <span class="tag">Auditoria</span>
-            </div>
-            <div class="project__actions">
-              <a class="btn btn--ghost btn--sm" href="#">Detalhes</a>
-              <a class="btn btn--ghost btn--sm" href="#" target="_blank" rel="noreferrer">Repo</a>
-            </div>
-          </article>
-
-          <article class="card project">
-            <div class="project__top">
-              <h3 class="h3">Projeto Educacional (WinForms + SQLite)</h3>
-              <span class="pill">Edu</span>
-            </div>
-            <p class="p">
-              Sistema com 10 telas (login, produtos, carrinho, pagamento etc.)
-              usado como trilha prática em sala.
-            </p>
-            <div class="tags">
-              <span class="tag">C#</span>
-              <span class="tag">WinForms</span>
-              <span class="tag">SQLite</span>
-              <span class="tag">Arquitetura</span>
-            </div>
-            <div class="project__actions">
-              <a class="btn btn--ghost btn--sm" href="#">Detalhes</a>
-              <a class="btn btn--ghost btn--sm" href="#" target="_blank" rel="noreferrer">Material</a>
-            </div>
-          </article>
+        <div class="projects-toolbar reveal">
+          <div class="repo-status" data-repo-status></div>
+          <a class="mini" href="https://github.com/DaviTaiyo?tab=repositories" target="_blank" rel="noreferrer" data-i18n="projects.allRepos"></a>
         </div>
-
-        <div class="note">
-          <span class="note__dot"></span>
-          <p class="note__text">
-            Dica: cada card pode virar uma página “case study” com Problema → Solução → Resultado → Prints.
-          </p>
-        </div>
+        <div class="projects" data-projects></div>
       </div>
     </section>
 
-    <!-- EXPERIÊNCIA -->
     <section id="experiencia" class="section">
       <div class="container">
-        <div class="section__head">
-          <h2 class="h2">Experiência</h2>
-          <p class="section__sub">Linha do tempo objetiva, sem enrolação.</p>
+        <div class="section__head reveal">
+          <h2 class="h2" data-i18n="experience.title"></h2>
+          <p class="section__sub" data-i18n="experience.subtitle"></p>
         </div>
-
-        <div class="timeline">
-          <div class="tl card">
-            <div class="tl__when">2025 — Atual</div>
-            <div class="tl__title">QA Automation / Tester Jr</div>
-            <div class="tl__desc">Automação, validação, melhoria de fluxos, padrões e rastreabilidade.</div>
-          </div>
-
-          <div class="tl card">
-            <div class="tl__when">2024 — Atual</div>
-            <div class="tl__title">Docente • SENAC</div>
-            <div class="tl__desc">Aulas práticas, projetos guiados, material didático e acompanhamento.</div>
-          </div>
-
-          <div class="tl card">
-            <div class="tl__when">Projetos</div>
-            <div class="tl__title">Construções pessoais</div>
-            <div class="tl__desc">Apps, automações, materiais e experimentos para evoluir produto e portfólio.</div>
-          </div>
-        </div>
+        <div class="timeline" data-timeline></div>
       </div>
     </section>
 
-    <!-- CONTEÚDOS -->
     <section id="conteudos" class="section">
       <div class="container">
-        <div class="section__head">
-          <h2 class="h2">Conteúdos</h2>
-          <p class="section__sub">Aulas, guias e materiais — se você quiser mostrar consistência pública.</p>
+        <div class="section__head reveal">
+          <h2 class="h2" data-i18n="content.title"></h2>
+          <p class="section__sub" data-i18n="content.subtitle"></p>
         </div>
-
-        <div class="grid3">
-          <article class="card">
-            <h3 class="h3">Guias e Aulas</h3>
-            <p class="p">
-              Conteúdos práticos: automação, JS, WinForms, qualidade e projetos completos.
-            </p>
-            <a class="mini" href="#">Ver materiais →</a>
-          </article>
-
-          <article class="card">
-            <h3 class="h3">YouTube / Lives</h3>
-            <p class="p">
-              Cortes e vídeos com foco em aprender rápido e construir portfólio de verdade.
-            </p>
-            <a class="mini" href="#">Abrir canal →</a>
-          </article>
-
-          <article class="card">
-            <h3 class="h3">Repositórios</h3>
-            <p class="p">
-              Projetos organizados com README, prints e explicação do porquê das decisões.
-            </p>
-            <a class="mini" href="#">GitHub →</a>
-          </article>
-        </div>
+        <div class="grid3" data-content-cards></div>
       </div>
     </section>
 
-    <!-- CONTATO -->
     <section id="contato" class="section">
       <div class="container">
-        <div class="section__head">
-          <h2 class="h2">Contato</h2>
-          <p class="section__sub">Bora conversar? Eu respondo rápido quando é objetivo 😄</p>
+        <div class="section__head reveal">
+          <h2 class="h2" data-i18n="contact.title"></h2>
+          <p class="section__sub" data-i18n="contact.subtitle"></p>
         </div>
 
         <div class="grid2">
-          <form class="card form" action="#" method="post">
+          <form class="card form reveal" data-contact-form>
             <label class="field">
-              <span class="field__label">Seu nome</span>
-              <input class="input" type="text" name="nome" placeholder="Ex: João" />
+              <span class="field__label" data-i18n="contact.name"></span>
+              <input class="input" type="text" name="name" autocomplete="name" />
             </label>
-
             <label class="field">
-              <span class="field__label">Seu e-mail</span>
-              <input class="input" type="email" name="email" placeholder="voce@exemplo.com" />
+              <span class="field__label" data-i18n="contact.subject"></span>
+              <input class="input" type="text" name="subject" autocomplete="off" />
             </label>
-
             <label class="field">
-              <span class="field__label">Mensagem</span>
-              <textarea class="input input--area" name="mensagem" rows="5" placeholder="Me conta do que você precisa..."></textarea>
+              <span class="field__label" data-i18n="contact.message"></span>
+              <textarea class="input input--area" name="message" rows="5"></textarea>
             </label>
-
             <button class="btn btn--primary" type="submit">
-              Enviar <span class="btn__icon">→</span>
+              <span data-i18n="contact.send"></span>
+              <span class="btn__icon" aria-hidden="true">-&gt;</span>
             </button>
-
-            <p class="p small form__hint">
-              (Depois a gente conecta isso com Formspree, Netlify Forms ou um back-end.)
-            </p>
+            <p class="p small form__hint" data-form-hint></p>
           </form>
 
-          <aside class="card contact">
-            <h3 class="h3">Links diretos</h3>
-            <p class="p small">Se preferir, me chama por aqui:</p>
-
+          <aside class="card contact reveal">
+            <h3 class="h3" data-i18n="contact.direct"></h3>
+            <p class="p small" data-i18n="contact.directText"></p>
             <div class="contact__list">
-              <a class="contact__item" href="mailto:seuemail@exemplo.com">
+              <a class="contact__item" href="mailto:daviepaulino@hotmail.com">
                 <span class="contact__k">Email</span>
-                <span class="contact__v">seuemail@exemplo.com</span>
+                <span class="contact__v">daviepaulino@hotmail.com</span>
               </a>
-
-              <a class="contact__item" href="#" target="_blank" rel="noreferrer">
+              <a class="contact__item" href="https://www.linkedin.com/in/davipaulino/" target="_blank" rel="noreferrer">
                 <span class="contact__k">LinkedIn</span>
-                <span class="contact__v">/in/seu-perfil</span>
+                <span class="contact__v">/in/davipaulino</span>
               </a>
-
-              <a class="contact__item" href="#" target="_blank" rel="noreferrer">
+              <a class="contact__item" href="https://github.com/DaviTaiyo" target="_blank" rel="noreferrer">
                 <span class="contact__k">GitHub</span>
-                <span class="contact__v">@seuuser</span>
+                <span class="contact__v">@DaviTaiyo</span>
               </a>
             </div>
-
-            <div class="divider"></div>
-
-            <p class="p small">
-              Quer que eu monte também uma página de <strong>case study</strong> por projeto (com prints e resultado)?
-              Fica MUITO “nível sênior”.
-            </p>
           </aside>
         </div>
 
         <footer class="footer">
-          <p class="footer__text">© 2026 Davi Emanuel Paulino • Feito com HTML/CSS</p>
+          <p class="footer__text">© <span data-year></span> Davi Emanuel Paulino</p>
         </footer>
       </div>
     </section>
   </main>
 </body>
 </html>
+

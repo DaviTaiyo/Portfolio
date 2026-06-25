@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-lang="pt">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,43 +9,54 @@
 
 <body>
   <main class="page">
-    <!-- efeitos de fundo -->
-    <div class="bg">
+    <div class="bg" aria-hidden="true">
       <div class="glow glow--a"></div>
       <div class="glow glow--b"></div>
       <div class="grid"></div>
-      <div class="noise" aria-hidden="true"></div>
+      <div class="noise"></div>
     </div>
 
     <section class="gate" aria-label="Tela de boas-vindas">
       <div class="gate__card">
         <div class="gate__top">
-          <span class="badge">Portfólio</span>
-          <span class="badge badge--soft">2026</span>
+          <div class="gate__badges">
+            <span class="badge" data-i18n-home="badge">Portfólio</span>
+            <span class="badge badge--soft">2026</span>
+          </div>
+
+          <div class="gate__controls" aria-label="Controles rápidos">
+            <nav class="language-switch" aria-label="Escolha o idioma">
+              <button class="is-active" type="button" data-home-lang="pt">PT</button>
+              <button type="button" data-home-lang="en">EN</button>
+              <button type="button" data-home-lang="ja">JA</button>
+            </nav>
+            <button class="theme-toggle" type="button" aria-label="Alternar tema claro e escuro" data-theme-toggle>
+              <span data-theme-icon>☾</span>
+            </button>
+          </div>
         </div>
 
         <h1 class="gate__title">
-          Bem-vindo.
-          <span class="gate__titleAccent">Eu sou o Davi</span>
+          <span data-i18n-home="titleTop">Bem-vindo.</span>
+          <span class="gate__titleAccent" data-i18n-home="titleAccent">Eu sou o Davi</span>
         </h1>
 
-        <p class="gate__subtitle">
-          QA Automation • Docente SENAC • Dev • SDET
+        <p class="gate__subtitle" data-i18n-home="subtitle">
+          QA Automation • Docente • Dev • SDET
         </p>
 
-        <p class="gate__desc">
-          Eu construo automações confiáveis, ensino programação e transformo ideias em produtos
-          com foco em qualidade, clareza e entrega.
+        <p class="gate__desc" data-i18n-home="description">
+          Eu construo automações confiáveis, ensino programação e transformo
+          ideias em produtos com foco em qualidade, clareza e entrega.
         </p>
 
         <div class="gate__actions">
-          <!-- depois vamos ligar pra /portfolio.html -->
-          <a class="btn btn--primary" href="/View/Portfolio/portugues/portfolio.html" aria-label="Entrar no portfólio">
-            Entrar no Portfólio
+          <a class="btn btn--primary" href="View/Portfolio/portugues/portfolio.html" aria-label="Entrar no portfólio" data-enter-link>
+            <span data-i18n-home="enter">Entrar no Portfólio</span>
             <span class="btn__icon" aria-hidden="true">→</span>
           </a>
 
-          <a class="btn btn--ghost" href="#" aria-label="Baixar currículo (ajuste o link depois)">
+          <a class="btn btn--ghost" href="mailto:daviepaulino@hotmail.com" aria-label="Entrar em contato por email" data-i18n-home="cv">
             Baixar CV
           </a>
         </div>
@@ -53,12 +64,12 @@
         <div class="divider"></div>
 
         <footer class="gate__footer">
-          <p class="hint">Links rápidos</p>
+          <p class="hint" data-i18n-home="quickLinks">Links rápidos</p>
 
           <nav class="social" aria-label="Links sociais">
-            <a class="social__link" href="https://github.com/DaviTaiyo" target="_blank" rel="GitHub">GitHub</a>
+            <a class="social__link" href="https://github.com/DaviTaiyo" target="_blank" rel="noreferrer">GitHub</a>
             <span class="dot">•</span>
-            <a class="social__link" href="https://www.linkedin.com/in/davipaulino/" target="_blank" rel="LinkedIn">LinkedIn</a>
+            <a class="social__link" href="https://www.linkedin.com/in/davipaulino/" target="_blank" rel="noreferrer">LinkedIn</a>
             <span class="dot">•</span>
             <a class="social__link" href="mailto:daviepaulino@hotmail.com">Email</a>
           </nav>
@@ -70,5 +81,95 @@
       </p>
     </section>
   </main>
+
+  <script>
+    const root = document.documentElement;
+    const themeButton = document.querySelector("[data-theme-toggle]");
+    const icon = document.querySelector("[data-theme-icon]");
+    const enterLink = document.querySelector("[data-enter-link]");
+    const langButtons = Array.from(document.querySelectorAll("[data-home-lang]"));
+
+    const routes = {
+      pt: "View/Portfolio/portugues/portfolio.html",
+      en: "View/Portfolio/English/portfolio.html",
+      ja: "View/Portfolio/japanese/portfolio.html"
+    };
+
+    const languageMeta = {
+      pt: { htmlLang: "pt-BR", title: "Portfólio | Davi" },
+      en: { htmlLang: "en", title: "Portfolio | Davi" },
+      ja: { htmlLang: "ja", title: "ポートフォリオ | Davi" }
+    };
+
+    const homeText = {
+      pt: {
+        badge: "Portfólio",
+        titleTop: "Bem-vindo.",
+        titleAccent: "Eu sou o Davi",
+        subtitle: "QA Automation • Docente • Dev • SDET",
+        description: "Eu construo automações confiáveis, ensino programação e transformo ideias em produtos com foco em qualidade, clareza e entrega.",
+        enter: "Entrar no Portfólio",
+        cv: "Baixar CV",
+        quickLinks: "Links rápidos"
+      },
+      en: {
+        badge: "Portfolio",
+        titleTop: "Welcome.",
+        titleAccent: "I am Davi",
+        subtitle: "QA Automation • Teacher • Developer • SDET",
+        description: "I build reliable automation, teach programming, and turn ideas into products with a focus on quality, clarity, and delivery.",
+        enter: "Enter Portfolio",
+        cv: "Download CV",
+        quickLinks: "Quick links"
+      },
+      ja: {
+        badge: "ポートフォリオ",
+        titleTop: "ようこそ。",
+        titleAccent: "Daviです",
+        subtitle: "QA自動化 • 講師 • 開発者 • SDET",
+        description: "信頼できる自動化を作り、プログラミングを教え、品質・明確さ・成果を重視してアイデアを製品にします。",
+        enter: "ポートフォリオへ",
+        cv: "CVを開く",
+        quickLinks: "クイックリンク"
+      }
+    };
+
+    function applyTheme(theme) {
+      root.dataset.theme = theme;
+      localStorage.setItem("portfolio-theme", theme);
+      icon.textContent = theme === "dark" ? "☾" : "☀";
+    }
+
+    function applyLanguage(lang) {
+      const selectedLang = routes[lang] ? lang : "pt";
+      const copy = homeText[selectedLang];
+
+      root.dataset.lang = selectedLang;
+      root.lang = languageMeta[selectedLang].htmlLang;
+      document.title = languageMeta[selectedLang].title;
+      localStorage.setItem("portfolio-lang", selectedLang);
+      enterLink.href = routes[selectedLang];
+
+      document.querySelectorAll("[data-i18n-home]").forEach((element) => {
+        element.textContent = copy[element.dataset.i18nHome] || "";
+      });
+
+      langButtons.forEach((button) => {
+        button.classList.toggle("is-active", button.dataset.homeLang === selectedLang);
+      });
+    }
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+    applyTheme(localStorage.getItem("portfolio-theme") || "dark");
+    applyLanguage(localStorage.getItem("portfolio-lang") || "pt");
+
+    themeButton.addEventListener("click", () => {
+      applyTheme(root.dataset.theme === "dark" ? "light" : "dark");
+    });
+
+    langButtons.forEach((button) => {
+      button.addEventListener("click", () => applyLanguage(button.dataset.homeLang));
+    });
+  </script>
 </body>
 </html>
