@@ -8,7 +8,8 @@ const dictionary = {
       kicker: "QA Automation • Docente SENAC • Dev",
       title: "Eu entrego qualidade com automação e engenharia prática.",
       lead: "Testes automatizados, documentação, padrões e consistência. Meu foco é construir soluções confiáveis em produto, processo e ensino.",
-      projectsButton: "Ver projetos"
+      projectsButton: "Ver projetos",
+      cvButton: "Baixar CV"
     },
     profile: {
       role: "QA Automation • Docente • Dev",
@@ -160,7 +161,8 @@ const dictionary = {
       kicker: "QA Automation • SENAC Teacher • Developer",
       title: "I deliver quality through automation and practical engineering.",
       lead: "Automated tests, documentation, standards, and consistency. I focus on building reliable solutions across products, processes, and teaching.",
-      projectsButton: "View projects"
+      projectsButton: "View projects",
+      cvButton: "Download CV"
     },
     profile: {
       role: "QA Automation • Teacher • Developer",
@@ -255,7 +257,8 @@ const dictionary = {
       kicker: "QA自動化 • SENAC講師 • 開発者",
       title: "自動化と実践的なエンジニアリングで品質を届けます。",
       lead: "自動テスト、ドキュメント、標準化、一貫性。製品、プロセス、教育において信頼できる解決策を作ることに集中しています。",
-      projectsButton: "プロジェクトを見る"
+      projectsButton: "プロジェクトを見る",
+      cvButton: "履歴書を開く"
     },
     profile: {
       role: "QA自動化 • 講師 • 開発者",
@@ -351,6 +354,12 @@ const text = dictionary[lang] || dictionary.pt;
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
 
+const resumeFiles = {
+  pt: { href: "../../Assets/CV/Curriculo_Davi_Paulino_PT.pdf", file: "Curriculo_Davi_Paulino_PT.pdf" },
+  en: { href: "../../Assets/CV/Davi_Paulino_Resume_EN.pdf", file: "Davi_Paulino_Resume_EN.pdf" },
+  ja: { href: "../../Assets/CV/Davi_Paulino_Resume_JA.pdf", file: "Davi_Paulino_Resume_JA.pdf" }
+};
+
 const publicProjectFallback = [
   ["carrinho_de_compras", "Aula de carrinho de compras simples.", "JavaScript", "https://github.com/DaviTaiyo/carrinho_de_compras"],
   ["aulaJqueryCss", "Aula pequena sobre jQuery e design usando CSS.", "CSS", "https://github.com/DaviTaiyo/aulaJqueryCss"],
@@ -428,7 +437,16 @@ function renderTranslations() {
   renderSkills();
   renderTimeline();
   renderContent();
+  setupCvDownloads();
   requestAnimationFrame(setupReveal);
+}
+
+function setupCvDownloads() {
+  const file = resumeFiles[lang] || resumeFiles.pt;
+  $$("[data-cv-download]").forEach((link) => {
+    link.href = file.href;
+    link.download = file.file;
+  });
 }
 
 function renderProfile() {

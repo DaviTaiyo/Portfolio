@@ -56,7 +56,7 @@
             <span class="btn__icon" aria-hidden="true">→</span>
           </a>
 
-          <a class="btn btn--ghost" href="mailto:daviepaulino@hotmail.com" aria-label="Entrar em contato por email" data-i18n-home="cv">
+          <a class="btn btn--ghost" href="View/Assets/CV/Curriculo_Davi_Paulino_PT.pdf" download="Curriculo_Davi_Paulino_PT.pdf" aria-label="Baixar currículo" data-i18n-home="cv" data-cv-link>
             Baixar CV
           </a>
         </div>
@@ -87,12 +87,19 @@
     const themeButton = document.querySelector("[data-theme-toggle]");
     const icon = document.querySelector("[data-theme-icon]");
     const enterLink = document.querySelector("[data-enter-link]");
+    const cvLink = document.querySelector("[data-cv-link]");
     const langButtons = Array.from(document.querySelectorAll("[data-home-lang]"));
 
     const routes = {
       pt: "View/Portfolio/portugues/portfolio.html",
       en: "View/Portfolio/English/portfolio.html",
       ja: "View/Portfolio/japanese/portfolio.html"
+    };
+
+    const cvRoutes = {
+      pt: { href: "View/Assets/CV/Curriculo_Davi_Paulino_PT.pdf", file: "Curriculo_Davi_Paulino_PT.pdf" },
+      en: { href: "View/Assets/CV/Davi_Paulino_Resume_EN.pdf", file: "Davi_Paulino_Resume_EN.pdf" },
+      ja: { href: "View/Assets/CV/Davi_Paulino_Resume_JA.pdf", file: "Davi_Paulino_Resume_JA.pdf" }
     };
 
     const languageMeta = {
@@ -149,6 +156,8 @@
       document.title = languageMeta[selectedLang].title;
       localStorage.setItem("portfolio-lang", selectedLang);
       enterLink.href = routes[selectedLang];
+      cvLink.href = cvRoutes[selectedLang].href;
+      cvLink.download = cvRoutes[selectedLang].file;
 
       document.querySelectorAll("[data-i18n-home]").forEach((element) => {
         element.textContent = copy[element.dataset.i18nHome] || "";
